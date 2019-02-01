@@ -21,12 +21,107 @@
 
 /* Transition Effects */
 
+nav#gameLinks a {
+    position: relative;
+    color: white;
+    transition: .5s color;
+}
 
-
+nav#gameLinks a:hover {
+    color: rgb(255, 194, 99);
+}
 
 /* Sprite Styles */
 
+nav#gameLinks a::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 0%;
+    height: 8px;
 
+    background: linear-gradient(to right, rgb(237, 243, 71), rgb(188, 74, 0));
+    border-radius: 4px;
+    opacity: 0;
+}
 
+nav#gameLinks a:hover::after {
+    opacity: 1;
+    width: 100%;
+
+    transition: .5s linear
+}
 
 /* Animation Styles */
+
+div.sprite {
+    position: absolute;
+}
+
+div#bat {
+    width: 40px;
+    height: 50px;
+    top: 100px;
+    left: -50px;
+    background: url(paa_bat.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+div#butterfly {
+    width: 35px;
+    height: 35px;
+    top: 60px;
+    left: -50px;
+    background: url(paa_bfly.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#fox {
+    width: 280px;
+    height: 260px;
+    bottom: 10px;
+    right: 10px;
+    background: url(paa_fox.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    animation: playSprite infinite 3.5s 4s steps(27);
+}
+
+@keyframes playSprite {
+
+    100% {
+        background: right center;
+    }
+}
+
+@keyframes flyRight {
+    25% {
+        top: 150px;
+    }
+
+    50% {
+        top: 55px;
+    }
+
+    65% {
+        top: 120px;
+    }
+
+    90% {
+        top: 50px;
+    }
+
+    100% {
+        top: 80px;
+        left: 100%;
+    }
+}
