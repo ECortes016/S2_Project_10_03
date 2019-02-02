@@ -20,6 +20,7 @@
 
 
 /* Transition Effects */
+/* While hovering over the links the color will change from white to a light orange with .5 second interval in between the transition. */
 
 nav#gameLinks a {
     position: relative;
@@ -32,6 +33,7 @@ nav#gameLinks a:hover {
 }
 
 /* Sprite Styles */
+/* While hovering over the links, a bar at the bottom will appear right under the links with the background color being a linear gradient starting from a yellow to a dark orange. The bar is rounded out by using the border radius. The bar does not show up unless hovering over it because the opacity is set to 0 but once you hover over it, the transition will start after a .5 second interval going in a linear direction and setting the opacity to 1. */
 
 nav#gameLinks a::after {
     content: "";
@@ -59,51 +61,51 @@ div.sprite {
     position: absolute;
 }
 
+/* The div with the id of bat has a left coordinate of -50px which makes it appear left off of the page. The background image is set to cover the div element and not repeat, and is set to the left center. The animation playSprite is set to a 2 second delay with 39 steps, and an infinite duration. The flyRight animation is also applied by giving it a 8 second interval going in a linear direction with an infinite duration. */
 div#bat {
     width: 40px;
     height: 50px;
     top: 100px;
     left: -50px;
-    background: url(paa_bat.png);
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url(paa_bat.png) left center/cover no-repeat;
 
-
+    animation: playSprite 2s infinite steps(39), flyRight 8s linear infinite;
 }
 
+/* The div with the id of butterfly is also set to left coordinates of -50px, and the background information is the same as the bat information. The playSprite animation is set to a 1 second delay with a 3 second interval, has 39 steps and has an infinite duration. The flyRight animation is set to an 8 second interval with infinite duration and is going in a linear direction. */
 div#butterfly {
     width: 35px;
     height: 35px;
     top: 60px;
     left: -50px;
-    background: url(paa_bfly.png);
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url(paa_bfly.png) left center/cover no-repeat;
+
+    animation: playSprite 1s 3s steps(33) infinite, flyRight 6s cubic-bezier(0, 1, 0.73, 0) infinite;
 }
 
+/* The div with the id of fox has the same background information as the butterfly and bat ones. The playSprite animation was given with a 3.5 second interval with 27 steps and an infinite duration, and a 4 second delay was also given. */
 div#fox {
     width: 280px;
     height: 260px;
     bottom: 10px;
     right: 10px;
-    background: url(paa_fox.png);
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url(paa_fox.png) left center/cover no-repeat;
 
-    animation: playSprite infinite 3.5s 4s steps(27);
+    animation: playSprite 3.5s infinite steps(27);
+    animation-delay: 4s;
 }
+
+/* Two different keyframes were created, the playSprite and the flyRight animations. The playSprite animation only has one keyframe which is at 100% while the flyRight animation has 5 different ones which are at 25%, 50%, 65%, 90%, and 100%. */
 
 @keyframes playSprite {
 
     100% {
-        background: right center;
+        background-position: right center;
     }
 }
 
 @keyframes flyRight {
+
     25% {
         top: 150px;
     }
